@@ -56,7 +56,7 @@
         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="index.php?page=jual">Transaksi Jual</a>
+                <a class="collapse-item" href="index.php?page=jual">Transaksi</a>
                 <a class="collapse-item" href="index.php?page=laporan">Laporan Penjualan</a>
             </div>
         </div>
