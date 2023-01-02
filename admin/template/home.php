@@ -61,7 +61,7 @@
     <div class="col-md-3 mb-3">
         <div class="card">
             <div class="card-header bg-info text-white">
-                <h6 class="pt-2"><i class="fas fa-upload"></i> Telah Terjual</h6>
+                <h6 class="pt-2"><i class="fas fa-upload"></i> Barang Telah Terjual</h6>
             </div>
             <div class="card-body">
                 <center>

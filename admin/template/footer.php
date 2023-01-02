@@ -8,7 +8,7 @@
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>
-                    <?php echo date('Y');?> - Aplikasi Kasir Waroeng D'Poer |
+                    <?php echo date('Y');?> Aplikasi Kasir Waroeng D'Poer |
                     BY <b>LadyBug</b>
                 </span>
             </div>
