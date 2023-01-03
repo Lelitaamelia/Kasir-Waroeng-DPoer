@@ -15,8 +15,13 @@
 		$jum = $row -> rowCount();
 		if($jum > 0){
 			$hasil = $row -> fetch();
+			if($hasil['user']=="admin"){
 			$_SESSION['admin'] = $hasil;
 			echo '<script>alert("Login Sukses");window.location="index.php"</script>';
+			}else if($hasil['user']=="kasir"){
+				$_SESSION['kasir'] = $hasil;
+			echo '<script>alert("Login Sukses");window.location="kasir.php"</script>';
+			}
 		}else{
 			echo '<script>alert("Login Gagal");history.go(-1);</script>';
 		}
