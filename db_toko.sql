@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2022 pada 09.24
+-- Waktu pembuatan: 04 Jan 2023 pada 01.28
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -32,19 +32,23 @@ CREATE TABLE `barang` (
   `id_barang` varchar(255) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `nama_barang` text NOT NULL,
-  `harga_awal` varchar(255) NOT NULL,
+  `harga_beli` varchar(255) NOT NULL,
   `harga_jual` varchar(255) NOT NULL,
+  `satuan_barang` varchar(255) NOT NULL,
   `stok` text NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `tgl_update` timestamp NULL DEFAULT NULL
+  `tgl_update` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id`, `id_barang`, `id_kategori`, `nama_barang`, `harga_awal`, `harga_jual`, `stok`, `tgl_input`, `tgl_update`) VALUES
-(1, 'BR001', 1, 'Mie Goreng Spesial ', '12000', '15000', '14', '2022-12-29 08:15:49', '2022-12-29 08:14:58');
+INSERT INTO `barang` (`id`, `id_barang`, `id_kategori`, `nama_barang`, `harga_beli`, `harga_jual`, `satuan_barang`, `stok`, `tgl_input`, `tgl_update`) VALUES
+(1, 'M001', 1, 'Mie Goreng Spesial', '15000', '18000', 'Porsi', '102', '2023-01-03 23:57:39', NULL),
+(2, 'M002', 2, 'Jus Alpukat', '8000', '10000', 'Porsi', '37', '2023-01-03 23:57:39', NULL),
+(3, 'M003', 3, 'Kentang Goreng', '5000', '9000', 'Porsi', '70', '2023-01-03 23:49:35', NULL),
+(4, 'M004', 2, 'Jus Apel', '8000', '10000', 'Gelas', '50', '2023-01-04 00:00:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -63,12 +67,9 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `tgl_input`) VALUES
-(1, 'Menu Paket Couple 2 Orang', '2022-12-28 02:34:17'),
-(2, 'Menu Paket Asik 4 Orang', '2022-12-28 02:34:17'),
-(3, 'Menu Paket Rukun 10 Orang', '2022-12-28 02:34:17'),
-(4, 'Menu Paket Sok Kabeh 10 Orang', '2022-12-28 02:34:17'),
-(5, 'Menu Makanan', '2022-12-28 02:34:17'),
-(6, 'Menu Minuman', '2022-12-28 02:34:17');
+(1, 'Makanan', '2023-01-03 23:43:45'),
+(2, 'Minuman', '2023-01-03 23:44:21'),
+(3, 'Snack', '2023-01-03 23:44:37');
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `nm_member`, `alamat_member`, `telepon`, `email`, `gambar`, `NIK`) VALUES
-(1, 'Anggi Pramudita', 'Wonoroto blok rampalan', '081234567890', 'anggi26@gmail.com', '1672116091logo.jpg', '114098178');
+(1, 'Lelita Amelia', 'Umbulrejo', '081234567890', 'lelita@gmail.com', '1672790155dapur.jpg', '12314121');
 
 -- --------------------------------------------------------
 
@@ -143,8 +144,8 @@ INSERT INTO `nota` (`id_nota`, `id_barang`, `id_member`, `jumlah`, `total`, `tan
 (7, 'BR001', 1, '2', '6000', '6 October 2020, 1:15', '10-2020'),
 (8, 'BR002', 1, '2', '6000', '6 October 2020, 1:17', '10-2020'),
 (9, 'BR001', 1, '2', '6000', '6 October 2020, 1:20', '10-2020'),
-(10, 'BR001', 1, '2', '6000', '6 October 2020, 1:51', '12-2022'),
-(11, 'BR003', 1, '1', '2000', '27 December 2022, 11:14', '12-2022');
+(10, 'M001', 1, '1', '18000', '4 January 2023, 6:53', '01-2023'),
+(11, 'M002', 1, '1', '10000', '4 January 2023, 6:57', '01-2023');
 
 -- --------------------------------------------------------
 
@@ -160,6 +161,14 @@ CREATE TABLE `penjualan` (
   `total` varchar(255) NOT NULL,
   `tanggal_input` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `penjualan`
+--
+
+INSERT INTO `penjualan` (`id_penjualan`, `id_barang`, `id_member`, `jumlah`, `total`, `tanggal_input`) VALUES
+(24, 'M001', 1, '1', '18000', '4 January 2023, 6:53'),
+(25, 'M002', 1, '1', '10000', '4 January 2023, 6:57');
 
 -- --------------------------------------------------------
 
@@ -180,7 +189,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id_toko`, `nama_toko`, `alamat_toko`, `tlp`, `nama_pemilik`) VALUES
-(1, 'Waroeng DPoer', 'Jl. Setyo Groho No. 1 Umbulrejo, Umbulsari ', '082283010005', 'Alex Santoso');
+(1, 'WAROENG DPOER', 'Jl. Raya Semboro, Krajan, Umbulrejo, Kec. Umbulsari, Kabupaten Jember', '081234567890', 'Alex Santoso');
 
 --
 -- Indexes for dumped tables
@@ -242,7 +251,7 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
@@ -266,7 +275,7 @@ ALTER TABLE `nota`
 -- AUTO_INCREMENT untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `toko`
