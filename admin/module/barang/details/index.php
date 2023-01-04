@@ -34,15 +34,19 @@
 				<td>Nama Barang</td>
 				<td><?php echo $hasil['nama_barang'];?></td>
 			</tr>
+			
 			<tr>
-				<td>Harga Awal</td>
-				<td><?php echo $hasil['harga_awal'];?></td>
+				<td>Harga Beli</td>
+				<td><?php echo $hasil['harga_beli'];?></td>
 			</tr>
 			<tr>
 				<td>Harga Jual</td>
 				<td><?php echo $hasil['harga_jual'];?></td>
 			</tr>
-			
+			<tr>
+				<td>Satuan Barang</td>
+				<td><?php echo $hasil['satuan_barang'];?></td>
+			</tr>
 			<tr>
 				<td>Stok</td>
 				<td><?php echo $hasil['stok'];?></td>

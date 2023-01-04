@@ -1,4 +1,4 @@
-        <h4>Data Barang</h4>
+<h4>Data Barang</h4>
         <br />
         <?php if(isset($_GET['success-stok'])){?>
         <div class="alert alert-success">
@@ -48,10 +48,11 @@
                             <th>No.</th>
                             <th>ID Barang</th>
                             <th>Kategori</th>
-                            <th>Nama Barang</th> 
+                            <th>Nama Barang</th>
                             <th>Stok</th>
                             <th>Harga Awal</th>
                             <th>Harga Jual</th>
+                            <th>Satuan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -83,8 +84,9 @@
                                 <?php echo $isi['stok'];?>
                                 <?php }?>
                             </td>
-                            <td>Rp.<?php echo number_format($isi['harga_awal']);?>,-</td>
+                            <td>Rp.<?php echo number_format($isi['harga_beli']);?>,-</td>
                             <td>Rp.<?php echo number_format($isi['harga_jual']);?>,-</td>
+                            <td> <?php echo $isi['satuan_barang'];?></td>
                             <td>
                                 <?php if($isi['stok'] <=  '3'){?>
                                 <form method="POST" action="fungsi/edit/edit.php?stok=edit">
@@ -111,7 +113,7 @@
                         </tr>
                         <?php 
 							$no++; 
-							$totalBeli += $isi['harga_awal'] * $isi['stok']; 
+							$totalBeli += $isi['harga_beli'] * $isi['stok']; 
 							$totalJual += $isi['harga_jual'] * $isi['stok'];
 							$totalStok += $isi['stok'];
 						}
@@ -169,16 +171,25 @@
                                     <td><input type="text" placeholder="Nama Barang" required class="form-control"
                                             name="nama"></td>
                                 </tr>
-                               
+                                
                                 <tr>
                                     <td>Harga Awal</td>
-                                    <td><input type="number" placeholder="Harga awal" required class="form-control"
+                                    <td><input type="number" placeholder="Harga beli" required class="form-control"
                                             name="beli"></td>
                                 </tr>
                                 <tr>
                                     <td>Harga Jual</td>
                                     <td><input type="number" placeholder="Harga Jual" required class="form-control"
                                             name="jual"></td>
+                                </tr>
+                                <tr>
+                                    <td>Satuan Barang</td>
+                                    <td>
+                                        <select name="satuan" class="form-control" required>
+                                            <option value="#">Pilih Satuan</option>
+                                            <option value="Porsi">Porsi</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Stok</td>

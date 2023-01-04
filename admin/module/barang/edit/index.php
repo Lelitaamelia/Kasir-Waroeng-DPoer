@@ -40,16 +40,25 @@
 					<td>Nama Barang</td>
 					<td><input type="text" class="form-control" value="<?php echo $hasil['nama_barang'];?>" name="nama"></td>
 				</tr>
-
 				<tr>
-					<td>Harga Awal</td>
+					<td>Harga Beli</td>
 					<td><input type="number" class="form-control" value="<?php echo $hasil['harga_beli'];?>" name="beli"></td>
 				</tr>
 				<tr>
 					<td>Harga Jual</td>
 					<td><input type="number" class="form-control" value="<?php echo $hasil['harga_jual'];?>" name="jual"></td>
 				</tr>
-				
+				<tr>
+					<td>Satuan Barang</td>
+					<td>
+						<select name="satuan" class="form-control">
+							<option value="<?php echo $hasil['satuan_barang'];?>"><?php echo $hasil['satuan_barang'];?>
+							</option>
+							<option value="#">Pilih Satuan</option>
+							<option value="Porsi">Porsi</option>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td>Stok</td>
 					<td><input type="number" class="form-control" value="<?php echo $hasil['stok'];?>" name="stok"></td>

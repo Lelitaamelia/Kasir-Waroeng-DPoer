@@ -15,13 +15,13 @@ if (!empty($_SESSION['admin'])) {
     }
 
     if (!empty($_GET['barang'])) {
-        $id = $_POST['id'];
+        $id = $_POST['id_barang'];
         $kategori = $_POST['kategori'];
         $nama = $_POST['nama'];
         $awal = $_POST['awal'];
         $jual = $_POST['jual'];
         $stok = $_POST['stok'];
-        $tgl = $_POST['tgl'];
+        $tgl = $_POST['tgl_input'];
 
         $data[] = $id;
         $data[] = $kategori;
